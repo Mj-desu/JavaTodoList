@@ -10,14 +10,16 @@ public class Task {
     private String description;
     private LocalDate deadline;
     private boolean isCompleted;
+    private String priority; // New attribute for task priority
 
-    public Task(String description, String deadline) {
+    public Task(String description, String deadline,String priority) {
         this.id = idCounter++;
         this.description = description;
         setDeadline(deadline);
+        this.priority = priority; // Set priority
         this.isCompleted = false;
     }
-//dsdasa
+
     public int getId() {
         return id;
     }
@@ -34,6 +36,9 @@ public class Task {
         return isCompleted;
     }
     
+    public String getPriority() {
+        return priority; // Getter for priority
+    }
  // Updated method to include logging
     public void markAsCompleted() {
         this.isCompleted = true;
@@ -56,6 +61,7 @@ public class Task {
     	return "Task ID: " + id +
     			", Description: " + description +
     			", Deadline: " + (deadline != null ? deadline : "Not set") +
-    			", Completed: " + (isCompleted ? "Yes" : "No"); // Modified to accommodate LocalDate
+    			", Completed: " + (isCompleted ? "Yes" : "No") +
+    			", Priority: " + priority; // Include priority in toString
     }
    }
